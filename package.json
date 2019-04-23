@@ -1,0 +1,19 @@
+{
+  "name": "tivnet_py",
+  "version": "1.0.0",
+  "description": "Docker example: Python/Flask",
+  "main": "app/app.py",
+  "keywords": [
+    "docker",
+    "python",
+    "flask"
+  ],
+  "author": "docker@tiv.net",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "docker build -t tivnet/py .",
+    "start": "docker run --rm --name tivnet_py -p 9042:5000 tivnet/py",
+    "stop": "docker stop tivnet_py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
