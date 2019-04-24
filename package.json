@@ -34,9 +34,11 @@
   "description": "Docker example: Python/Flask",
   "scripts": {
     "build": "docker build --build-arg maintainer=%npm_package_author_email% --build-arg version=%npm_package_version% --build-arg \"description=%npm_package_description%\" -t %npm_package_config_image_name% . && npm run images:cleanup",
+    "containers:cleanup": "docker container prune -f && npm run processes",
     "images:cleanup": "docker image prune -f && docker images",
     "images:show": "docker images",
     "processes": "docker ps -a",
+    "push": "docker push %npm_package_config_image_name%",
     "start": "docker run -d --rm --name %npm_package_config_container_name% -p %npm_package_config_port_external%:%npm_package_config_port_internal% %npm_package_config_image_name%",
     "stop": "docker stop %npm_package_config_container_name%",
     "test": "echo \"Error: no test specified\" && exit 1",
