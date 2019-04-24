@@ -1,13 +1,5 @@
 {
   "name": "tivnet_py",
-  "config": {
-    "image_name": "tivnet/py",
-    "container_name": "tivnet_py",
-    "port_external": "9042",
-    "port_internal": "5000"
-  },
-  "version": "1.0.1",
-  "description": "Docker example: Python/Flask",
   "repository": {
     "type": "git",
     "url": "https://github.com/tivnet/docker-python-flask-example"
@@ -16,15 +8,32 @@
   "keywords": [
     "docker",
     "python",
-    "flask"
+    "flask",
+    "windows"
+  ],
+  "license": "GPL-3.0",
+  "//": [
+    "-----------------------------------------------------------------------",
+    "The below parameters are used by the 'scripts'.",
+    "Some are passed to the Dockerfile's ARGs.",
+    "Note that the %param% is the MS Windows syntax. For Linux, it's $param.",
+    "-----------------------------------------------------------------------"
   ],
   "author": {
+    "//": "The email is passed to Dockerfile's ARG maintainer",
     "email": "docker@tiv.net",
     "name": "Gregory Karpinsky"
   },
-  "license": "GPL-3.0",
+  "config": {
+    "image_name": "tivnet/py",
+    "container_name": "tivnet_py",
+    "port_external": "9042",
+    "port_internal": "5000"
+  },
+  "version": "1.0.2",
+  "description": "Docker example: Python/Flask",
   "scripts": {
-    "build": "docker build --no-cache --build-arg maintainer=%npm_package_author_email% --build-arg version=%npm_package_version% --build-arg \"description=%npm_package_description%\" -t %npm_package_config_image_name% .",
+    "build": "docker build --build-arg maintainer=%npm_package_author_email% --build-arg version=%npm_package_version% --build-arg \"description=%npm_package_description%\" -t %npm_package_config_image_name% . && npm run images:cleanup",
     "images:cleanup": "docker image prune -f && docker images",
     "images:show": "docker images",
     "processes": "docker ps -a",
