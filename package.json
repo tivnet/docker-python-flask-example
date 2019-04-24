@@ -1,6 +1,12 @@
 {
   "name": "tivnet_py",
-  "version": "1.0.0",
+  "config": {
+    "image_name": "tivnet/py",
+    "container_name": "tivnet_py",
+    "port_external": "9042",
+    "port_internal": "5000"
+  },
+  "version": "1.0.1",
   "description": "Docker example: Python/Flask",
   "main": "app/app.py",
   "keywords": [
@@ -11,9 +17,14 @@
   "author": "docker@tiv.net",
   "license": "GPL-3.0",
   "scripts": {
-    "build": "docker build -t tivnet/py .",
-    "start": "docker run --rm --name tivnet_py -p 9042:5000 tivnet/py",
-    "stop": "docker stop tivnet_py",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "docker build --build-arg version=%npm_package_version% --build-arg \"description=%npm_package_description%\" -t %npm_package_config_image_name% .",
+    "images:cleanup": "docker image prune -f && docker images",
+    "images:show": "docker images",
+    "processes": "docker ps -a",
+    "start": "docker run -d --rm --name %npm_package_config_container_name% -p %npm_package_config_port_external%:%npm_package_config_port_internal% %npm_package_config_image_name%",
+    "stop": "docker stop %npm_package_config_container_name%",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:files:container": "docker exec -it %npm_package_config_container_name% find -type f -exec ls -laF {} ;",
+    "test:files:image": "docker run --rm -it %npm_package_config_image_name% ls -lRaF"
   }
 }
