@@ -1,12 +1,14 @@
 # Alpine is a very small Linux image.
 FROM python:3-alpine
 
-# The Author.
-LABEL maintainer="docker@tiv.net"
-
 # Argument's default values. See the `--build-arg` build parameter in package.json.
 ARG version=NO_VERSION
 ARG description=NO_DESCRIPTION
+
+# The Author.
+LABEL maintainer="docker@tiv.net"
+LABEL version="${version}"
+LABEL description="${description}"
 
 # Tell Python to install the required packages.
 COPY requirements.txt /tmp/requirements.txt
