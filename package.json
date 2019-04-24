@@ -8,6 +8,10 @@
   },
   "version": "1.0.1",
   "description": "Docker example: Python/Flask",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tivnet/docker-python-flask-example"
+  },
   "main": "app/app.py",
   "keywords": [
     "docker",
