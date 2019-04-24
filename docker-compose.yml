@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    image: "tivnet/py"
+    build:
+      context: .
+      args:
+        version: "1.0.3-beta.1"
+        description: "Docker example: Python/Flask (docker-composer)"
+    ports:
+     - "9042:5000"

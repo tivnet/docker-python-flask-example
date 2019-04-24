@@ -4,6 +4,7 @@
 * A `Dockerfile` to build the image from Alpine Linux.
 * A `package.json` file with a set of convenience scripts to build and run the image.
     * passing the configuration parameters from `package.json` to `Dockerfile` via `ARGs`.
+* A `docker-compose.yml` file.
     
 ## Designed to be built and to run under MS Windows
 
