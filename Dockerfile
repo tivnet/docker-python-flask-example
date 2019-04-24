@@ -4,9 +4,10 @@ FROM python:3-alpine
 # Argument's default values. See the `--build-arg` build parameter in package.json.
 ARG version=NO_VERSION
 ARG description=NO_DESCRIPTION
+ARG maintainer=NO_MAINTAINER
 
 # The Author.
-LABEL maintainer="docker@tiv.net"
+LABEL maintainer="${maintainer}"
 LABEL version="${version}"
 LABEL description="${description}"
 

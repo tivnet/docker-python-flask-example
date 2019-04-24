@@ -18,10 +18,13 @@
     "python",
     "flask"
   ],
-  "author": "docker@tiv.net",
+  "author": {
+    "email": "docker@tiv.net",
+    "name": "Gregory Karpinsky"
+  },
   "license": "GPL-3.0",
   "scripts": {
-    "build": "docker build --build-arg version=%npm_package_version% --build-arg \"description=%npm_package_description%\" -t %npm_package_config_image_name% .",
+    "build": "docker build --no-cache --build-arg maintainer=%npm_package_author_email% --build-arg version=%npm_package_version% --build-arg \"description=%npm_package_description%\" -t %npm_package_config_image_name% .",
     "images:cleanup": "docker image prune -f && docker images",
     "images:show": "docker images",
     "processes": "docker ps -a",
