@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   tivnet_py:
     image: "tivnet/py"
@@ -11,3 +11,9 @@ services:
         maintainer: "docker@tiv.net"
     ports:
     - "9042:5000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000"]
+      interval: 30s
+      timeout: 2s
+      retries: 2
+      start_period: 5s

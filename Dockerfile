@@ -11,6 +11,9 @@ LABEL maintainer="${maintainer}"
 LABEL version="${version}"
 LABEL description="${description}"
 
+# Install curl needed for health checks.
+RUN apk add curl
+
 # Tell Python to install the required packages.
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt

@@ -41,7 +41,7 @@
     "push": "docker push %npm_package_config_image_name%",
     "start": "docker run -d --rm --name %npm_package_config_container_name% -p %npm_package_config_port_external%:%npm_package_config_port_internal% %npm_package_config_image_name%",
     "stop": "docker stop %npm_package_config_container_name%",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "curl -f http://localhost:9042",
     "test:files:container": "docker exec -it %npm_package_config_container_name% find -type f -exec ls -laF {} ;",
     "test:files:image": "docker run --rm -it %npm_package_config_image_name% ls -lRaF"
   }
