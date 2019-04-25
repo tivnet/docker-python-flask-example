@@ -2,14 +2,17 @@
 
 * A simple Python/Flask application.
 * A `Dockerfile` to build the image from Alpine Linux.
+    * `curl` is added to Alpine.
 * A `package.json` file with a set of convenience scripts to build and run the image.
     * passing the configuration parameters from `package.json` to `Dockerfile` via `ARGs`.
 * A `docker-compose.yml` file.
+    * with a health check using `curl`.
     
 ## Designed to be built and to run under MS Windows
 
 * `Dockerfile` has commands to reset the file and folder permissions in the image.
 *  Parameters in `package.json` use the `%param%` form (`$param` on Linux).
+    * Emulate the `docker-compose` settings.
 * Tested on MS Windows-10.
 
 ## Runs on AWS Elastic Beanstalk
