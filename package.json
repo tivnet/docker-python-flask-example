@@ -1,5 +1,9 @@
 {
   "name": "tivnet_py",
+  "os": [
+    "win32"
+  ],
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/tivnet/docker-python-flask-example"
